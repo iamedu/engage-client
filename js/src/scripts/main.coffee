@@ -1,1 +1,4 @@
-console.log "Hola mundo"
+`/** @jsx React.DOM */`
+
+require("script!react/react-with-addons.js")
+
