@@ -1,0 +1,32 @@
+cmake_minimum_required (VERSION 2.8)
+project (Engage)
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/modules/")
+
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+if(COMPILER_SUPPORTS_CXX11)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libstdc++")
+elseif(COMPILER_SUPPORTS_CXX0X)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -stdlib=libstdc++")
+else()
+    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+endif()
+
+find_package(PkgConfig REQUIRED)
+find_package(CEF REQUIRED)
+find_package(Lua51 REQUIRED)
+find_library(COCOA_LIBRARY Cocoa)
+
+pkg_search_module(GLFW REQUIRED glfw3)
+
+include_directories(${CEF_INCLUDE_DIRS})
+include_directories(include)
+include_directories(${GLFW_INCLUDE_DIRS})
+
+add_executable(engage main.mm app.cc handler.cc handler_mac.mm delegate.mm)
+target_link_libraries(engage ${CEF_LIBRARIES} ${LUA_LIBRARIES} ${COCOA_LIBRARY})
+
+add_executable("engage Helper" helper.cc)
+target_link_libraries("engage Helper" ${CEF_LIBRARIES})
