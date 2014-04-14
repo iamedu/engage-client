@@ -1,0 +1,24 @@
+{
+  "name": "engage-client-js",
+  "version": "0.1.0",
+  "description": "Simple Engage Client",
+  "main": "index.js",
+  "author": "Eduardo Diaz",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-util": "^2.2.14",
+    "gulp-coffee": "^1.4.1",
+    "webpack": "^1.1.5",
+    "webpack-dev-server": "^1.2.7",
+    "coffee-script": "^1.7.1",
+    "express": "^4.0.0",
+    "bower": "^1.3.2",
+    "gulp-minify-css": "^0.3.1",
+    "gulp-clean": "^0.2.4",
+    "gulp-watch": "^0.5.4",
+    "gulp-rev": "^0.3.2",
+    "tiny-lr": "0.0.5",
+    "jsx-loader": "^0.9.0",
+    "coffee-loader": "^0.7.1"
+  }
+}

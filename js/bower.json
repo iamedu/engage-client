@@ -1,0 +1,21 @@
+{
+  "name": "engage-client-js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/iamedu/engage-client",
+  "authors": [
+    "Eduardo Díaz <iamedu@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+	"dependencies": {
+		"react": "~0.10.0",
+		"rxjs": "~2.2.0"
+	}
+}
